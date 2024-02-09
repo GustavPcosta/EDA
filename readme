@@ -1,0 +1,32 @@
+# Análise de Preços de Aluguéis Temporários em Nova York
+
+Este projeto tem como objetivo desenvolver um modelo de previsão de preços para uma plataforma de aluguéis temporários em Nova York.
+
+## Conjunto de Dados
+
+O conjunto de dados inclui informações sobre várias propriedades listadas na plataforma de aluguel temporário. Cada linha do conjunto de dados representa uma propriedade única e inclui características como localização, tipo de quarto, preço, número mínimo de noites, número de reviews, etc.
+
+## Dependências
+
+Este projeto requer Python e as seguintes bibliotecas Python instaladas:
+
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+
+## Código
+
+O código principal está no arquivo `modelagem.py`. Ele inclui a análise exploratória dos dados, o pré-processamento dos dados, a modelagem e a avaliação do modelo.
+
+## Execução
+
+Para executar o projeto, siga os passos abaixo:
+
+1. Abra o Visual Studio Code.
+2. Navegue até o diretório do projeto usando o explorador de arquivos do VSCode.
+3. Abra o terminal integrado do VSCode (View -> Terminal).
+4. No terminal, execute o seguinte comando:
+
+```bash
+python modelagem.py
