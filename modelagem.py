@@ -1,13 +1,13 @@
 
 
-
-
-
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import pickle
+
 
 data = {
     'id': [1, 2, 3, 4, 5],
@@ -26,6 +26,7 @@ data = {
     'disponibilidade_365': [355, 180, 240, 120, 300]
 }
 
+
 df = pd.DataFrame(data)
 
 
@@ -36,7 +37,6 @@ print(df.head())
 
 
 print(df.describe())
-
 
 df.hist(figsize=(12, 10))
 plt.tight_layout()
@@ -65,3 +65,22 @@ sns.boxplot(x='room_type', y='price', data=df)
 plt.title('Preço por Tipo de Quarto')
 plt.xticks(rotation=90)
 plt.show()
+
+
+df = pd.get_dummies(df, drop_first=True)
+
+X = df.drop('price', axis=1)
+y = df['price']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+modelo = LinearRegression()
+modelo.fit(X_train, y_train)
+
+train_score = modelo.score(X_train, y_train)
+test_score = modelo.score(X_test, y_test)
+print(f'Train Score: {train_score}')
+print(f'Test Score: {test_score}')
+
+with open('modelo.pkl', 'wb') as f:
+    pickle.dump(modelo, f)
